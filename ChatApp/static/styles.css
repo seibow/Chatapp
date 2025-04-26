@@ -1,0 +1,19 @@
+p {
+    color: red;
+}
+
+.head-icon {
+    display: flex;
+    align-items: center;
+}
+
+header {
+    background-color: #D9D9D9;
+    height: 138px;
+}
+
+.header-img {
+    display: inline-block;
+    margin-left: 39px;
+    margin-top: 41px;
+}
