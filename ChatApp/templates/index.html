@@ -12,8 +12,11 @@
  </head>  
  <header>
     <img src="../static/img/logo-trimming.png" class="header-img">
+    {% block header %}{% endblock %}
  </header>  
  <body>
-   {% block body %}{% endblock %}
+  <div class="body-round">
+    {% block body %} {% endblock %}
+  </div>
  </body>
 </html>
