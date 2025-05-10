@@ -1,25 +1,155 @@
 header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     background-color: #D9D9D9;
     height: 138px;
     margin: 0px;
 }
 
 .header-img {
-    display: inline-block;
+    grid-column: 1;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 15px;
     height: 100px;
 }
 
 body {
     margin: 0px;
     background-color: #4d4d4d;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .body-round {
     background-color: white;
     border-radius: 46px;
     margin: 22px;
-    height: calc(100vh - 22px);
+}
 
+.main {
+    flex: 1;
+}
+
+/* ここからchannels */
+
+.header-menu {
+    grid-column: 2;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+    font-size: 24px;
+    align-items: flex-end;
+}
+
+.page {
+    display: flex;
+    font-size: 24px;
+    justify-content: space-between;
+    align-items: center; 
+    width: 30%;
+    margin: 0 auto;
+}
+
+#prev {
+    margin-top: 70px;
+}
+
+#pagenation {
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+#next {
+    margin-top: 70px;
+}
+
+.channel-title-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 30px;
+    background-color: #DDDDDD;
+    margin: 30px;
+    height: 100px;
+    align-items: center;
+}
+
+.channel-box {
+    display: flex;
+    align-items: center;
+    grid-column: 1;
+}
+
+.channel-img {
+    margin: 15px;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px; 
+}
+
+.channel-title {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.channel-summary {
+    grid-column: 2;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .header-menu {
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .page {
+    flex-direction: row;
+    width: 90%;
+    font-size: 18px;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+
+  .channel-title-box {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 15px 10px;
+  }
+
+  .channel-box {
+    grid-column: auto;
+    margin-bottom: 10px;
+  }
+
+  .channel-img {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+  }
+
+  .channel-title {
+    font-size: 20px;
+  }
+
+  .channel-summary {
+    grid-column: auto;
+    font-size: 16px;
+  }
+
+  header {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .header-img {
+    margin: 10px 0 10px 20px;
+    height: 80px;
+  }
+
+  body {
+    height: auto;
+  }
 }
