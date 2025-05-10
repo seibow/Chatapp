@@ -1,0 +1,60 @@
+{% extends 'index.html' %}{% block title %}
+<title>channels</title>
+{% endblock %}{% block header %}
+<div class="header-menu">
+    <div>チャンネル作成</div>
+    <div>ログアウト</div>
+</div>
+{% endblock %}{% block body %}
+<main>
+    <div class="page">
+        <div id="prev">前へ</div>
+        <div id="pagenation">1</div>
+        <div id="next">次へ</div>
+    </div>
+    <div class="channel-title-box">
+        <div class="channel-box">
+            <img src="../static/img/saberiba.png" class="channel-img">
+            <div class="channel-title">
+                チャンネル1
+            </div>
+        </div>
+        <div class="channel-summary">
+            チャンネル1概要
+        </div>
+    </div>
+    <div class="channel-title-box">
+        <div class="channel-box">
+            <img src="../static/img/saberiba.png" class="channel-img">
+            <div class="channel-title">
+                チャンネル2
+            </div>
+        </div>
+        <div class="channel-summary">
+            チャンネル2概要
+        </div>
+    </div>
+    <div class="channel-title-box">
+        <div class="channel-box">
+            <img src="../static/img/saberiba.png" class="channel-img">
+            <div class="channel-title">
+                チャンネル3
+            </div>
+        </div>
+        <div class="channel-summary">
+            チャンネル3概要
+        </div>
+    </div>
+    <div class="channel-title-box">
+        <div class="channel-box">
+            <img src="../static/img/saberiba.png" class="channel-img">
+            <div class="channel-title">
+                チャンネル4
+            </div>
+        </div>
+        <div class="channel-summary">
+            チャンネル4概要
+        </div>
+    </div>
+</main>
+{% endblock %}
