@@ -29,9 +29,8 @@ body {
 
 .main {
     flex: 1;
+    overflow-y: auto;
 }
-
-/* ここからchannels */
 
 .header-menu {
     grid-column: 2;
@@ -40,28 +39,6 @@ body {
     margin-bottom: 30px;
     font-size: 24px;
     align-items: flex-end;
-}
-
-.page {
-    display: flex;
-    font-size: 24px;
-    justify-content: space-between;
-    align-items: center; 
-    width: 30%;
-    margin: 0 auto;
-}
-
-#prev {
-    margin-top: 70px;
-}
-
-#pagenation {
-    margin: 0 auto;
-    margin-top: 70px;
-}
-
-#next {
-    margin-top: 70px;
 }
 
 .channel-title-box {
@@ -75,9 +52,12 @@ body {
 }
 
 .channel-box {
-    display: flex;
+    display: grid;
+    grid-template-columns: 70px 1fr 1fr;
     align-items: center;
     grid-column: 1;
+    justify-content: space-between;
+    column-gap: 50px;
 }
 
 .channel-img {
@@ -87,9 +67,23 @@ body {
     height: 70px; 
 }
 
+.icon-set {
+    grid-column: 3;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.edit-pen,
+.delete-trashbox {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+
 .channel-title {
     font-weight: bold;
     font-size: 32px;
+    grid-column: 2;
 }
 
 .channel-summary {
@@ -103,14 +97,6 @@ body {
     align-items: center;
     font-size: 18px;
     margin-bottom: 10px;
-  }
-
-  .page {
-    flex-direction: row;
-    width: 90%;
-    font-size: 18px;
-    justify-content: space-between;
-    padding: 0 1rem;
   }
 
   .channel-title-box {
@@ -151,5 +137,74 @@ body {
 
   body {
     height: auto;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .channel-box {
+    grid-template-columns: 60px 1fr 1fr;
+    column-gap: 30px;
+  }
+
+  .channel-title {
+    font-size: 24px;
+  }
+
+  .channel-summary {
+    font-size: 18px;
+  }
+
+  .channel-img {
+    width: 60px;
+    height: 60px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  header {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-menu {
+    flex-direction: column;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .header-img {
+    height: 60px;
+    margin: 10px 0;
+  }
+
+  .channel-title {
+    font-size: 12px;
+  }
+
+  .channel-summary {
+    font-size: 10px;
+  }
+
+  .channel-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .channel-title-box {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .channel-box {
+      flex-wrap: nowrap;
+  }
+
+  .edit-pen,
+  .delete-trashbox {
+      width: 20px;
+      height: 20px;
   }
 }
