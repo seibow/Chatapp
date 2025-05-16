@@ -7,6 +7,23 @@
 </div>
 {% endblock %}{% block body %}
 <main>
+    <div class="create-channel">
+        <div class="create-channel-title">チャンネル作成→</div>
+        <button id="openModalBtn">
+            <img src="../static/img/add.PNG" class="add-img">
+        </button>
+        <div id="channelModal" class="modal">
+            <div class="modal-content">
+                <h3 id="modalTitle">チャンネル作成</h3>
+                <p>チャンネル名</p>
+                <input type="text" placeholder="チャンネル名を入れてください" id="channelName">
+                <p>チャンネル概要</p>
+                <textarea id="channelSummary" placeholder="チャンネル概要を入れてください"></textarea><br>
+                <button id="submitBtn">OK</button>
+                <button id="closeModalBtn">キャンセル</button>
+            </div>
+        </div>
+    </div>
     <div class="channel-title-box">
         <div class="channel-box">
             <img src="../static/img/saberiba.png" class="channel-img">
@@ -14,8 +31,19 @@
                 チャンネル1
             </div>
             <div class="icon-set">
-                <img src="../static/img/edit-pen.png" class="edit-pen">
-                <img src="../static/img/delete-trashbox.png" class="delete-trashbox">
+                <button>
+                    <img src="../static/img/edit-pen.png" class="edit-pen">
+                </button>
+                <button>
+                    <img src="../static/img/delete-trashbox.png" class="delete-trashbox">
+                </button>
+                <div id="deleteModal" class="modal">
+                    <div class="modal-content">
+                        <p>このチャンネルを削除してもよろしいですか？</p>
+                        <button id="confirmDeleteBtn">削除</button>
+                        <button id="cancelDeleteBtn">キャンセル</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="channel-summary">
@@ -89,4 +117,6 @@
         </div>
     </div>
 </main>
+<script src="{{ url_for('static', filename='js/create-channel.js') }}"></script>
+<script src="{{ url_for('static', filename='js/delete-channel.js') }}"></script>
 {% endblock %}
