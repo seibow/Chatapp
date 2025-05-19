@@ -3,7 +3,14 @@
 {% endblock %}{% block header %}
 <div class="header-menu">
     <div>チャンネル一覧</div>
-    <div>ログアウト</div>
+    <div id="logoutModalOpen">ログアウト</div> 
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <p>ログアウトしてもよろしいですか？</p>
+            <button id="confirmLogoutBtn">ログアウト</button>
+            <button id="cancelLogoutBtn">キャンセル</button>
+        </div>
+    </div>      
 </div>
 {% endblock %}{% block body %}
 <main>
@@ -14,109 +21,56 @@
         </button>
         <div id="channelModal" class="modal">
             <div class="modal-content">
-                <h3 id="modalTitle">チャンネル作成</h3>
-                <p>チャンネル名</p>
-                <input type="text" placeholder="チャンネル名を入れてください" id="channelName">
-                <p>チャンネル概要</p>
-                <textarea id="channelSummary" placeholder="チャンネル概要を入れてください"></textarea><br>
-                <button id="submitBtn">OK</button>
-                <button id="closeModalBtn">キャンセル</button>
+                <form id="channelForm">
+                    <h3 id="modalTitle">チャンネル作成</h3>
+                    <p>チャンネル名</p>
+                    <input type="text" placeholder="チャンネル名を入れてください" id="channelName" name="channelTitle">
+                    <p>チャンネル概要</p>
+                    <textarea id="channelSummary" placeholder="チャンネル概要を入れてください" name="channelDescription"></textarea><br>
+                    <button type="submit" id="submitBtn">OK</button>
+                    <button type="button" id="closeModalBtn">キャンセル</button>
+                </form>
             </div>
         </div>
     </div>
-    <div class="channel-title-box">
-        <div class="channel-box">
-            <img src="../static/img/saberiba.png" class="channel-img">
-            <div class="channel-title">
-                チャンネル1
-            </div>
-            <div class="icon-set">
-                <button>
-                    <img src="../static/img/edit-pen.png" class="edit-pen">
-                </button>
-                <button>
-                    <img src="../static/img/delete-trashbox.png" class="delete-trashbox">
-                </button>
-                <div id="deleteModal" class="modal">
-                    <div class="modal-content">
-                        <p>このチャンネルを削除してもよろしいですか？</p>
-                        <button id="confirmDeleteBtn">削除</button>
-                        <button id="cancelDeleteBtn">キャンセル</button>
+    {% with channels = [
+        {'id': '1', 'name': 'チャンネル1', 'summary': 'これはチャンネル1です', 'creator_id': 1},
+        {'id': '2', 'name': 'チャンネル2', 'summary': 'これはチャンネル2です', 'creator_id': 2},
+        {'id': '3', 'name': 'チャンネル3', 'summary': 'これはチャンネル3です', 'creator_id': 2}
+    ], current_user = {'id': 2} %}
+        {% for channel in channels %}
+            <div class="channel-title-box" data-channel-id="{{channel.id}}">
+                <div class="channel-box">
+                    <img src="../static/img/saberiba.png" class="channel-img">
+                    <div class="channel-title">
+                        {{ channel.name }}
+                    </div>
+                    <div class="icon-set">
+                        {% if channel.creator_id == current_user.id %}  <!--id名は後で確認！-->
+                            <button>
+                                <img src="../static/img/edit-pen.png" class="edit-pen">
+                            </button>
+                            <button>
+                                <img src="../static/img/delete-trashbox.png" class="delete-trashbox">
+                            </button>
+                        {% endif %}
+                        <div id="deleteModal" class="modal">
+                            <div class="modal-content">
+                                <p>このチャンネルを削除してもよろしいですか？</p>
+                                <button id="confirmDeleteBtn">削除</button>
+                                <button id="cancelDeleteBtn">キャンセル</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="channel-summary">
+                    {{channel.summary}}
+                </div>
             </div>
-        </div>
-        <div class="channel-summary">
-            チャンネル1概要
-        </div>
-    </div>
-    <div class="channel-title-box">
-        <div class="channel-box">
-            <img src="../static/img/saberiba.png" class="channel-img">
-            <div class="channel-title">
-                チャンネル2
-            </div>
-        </div>
-        <div class="channel-summary">
-            チャンネル2概要
-        </div>
-    </div>
-    <div class="channel-title-box">
-        <div class="channel-box">
-            <img src="../static/img/saberiba.png" class="channel-img">
-            <div class="channel-title">
-                チャンネル3
-            </div>
-        </div>
-        <div class="channel-summary">
-            チャンネル3概要
-        </div>
-    </div>
-    <div class="channel-title-box">
-        <div class="channel-box">
-            <img src="../static/img/saberiba.png" class="channel-img">
-            <div class="channel-title">
-                チャンネル4
-            </div>
-        </div>
-        <div class="channel-summary">
-            チャンネル4概要
-        </div>
-    </div>
-    <div class="channel-title-box">
-        <div class="channel-box">
-            <img src="../static/img/saberiba.png" class="channel-img">
-            <div class="channel-title">
-                チャンネル5
-            </div>
-        </div>
-        <div class="channel-summary">
-            チャンネル5概要
-        </div>
-    </div>
-    <div class="channel-title-box">
-        <div class="channel-box">
-            <img src="../static/img/saberiba.png" class="channel-img">
-            <div class="channel-title">
-                チャンネル6
-            </div>
-        </div>
-        <div class="channel-summary">
-            チャンネル6概要
-        </div>
-    </div>
-    <div class="channel-title-box">
-        <div class="channel-box">
-            <img src="../static/img/saberiba.png" class="channel-img">
-            <div class="channel-title">
-                チャンネル7
-            </div>
-        </div>
-        <div class="channel-summary">
-            チャンネル7概要
-        </div>
-    </div>
+        {% endfor%}
+    {% endwith %}
 </main>
 <script src="{{ url_for('static', filename='js/create-channel.js') }}"></script>
 <script src="{{ url_for('static', filename='js/delete-channel.js') }}"></script>
+<script src="{{ url_for('static', filename='js/logout.js')}}"></script>
 {% endblock %}
