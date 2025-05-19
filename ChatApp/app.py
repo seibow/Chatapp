@@ -10,7 +10,9 @@ def index():
 def channels():
     return render_template ('channels.html')
 
-
+@app.route('/login', methods=['GET'])
+def login():
+    return ("ログイン画面です")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)

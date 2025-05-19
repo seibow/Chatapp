@@ -1,3 +1,5 @@
+let deleteChannelId = null;
+
 window.addEventListener("DOMContentLoaded", () => {
     const deleteButtons = document.querySelectorAll(".delete-trashbox");
     const deleteModal = document.getElementById("deleteModal");
@@ -9,11 +11,13 @@ window.addEventListener("DOMContentLoaded", () => {
     deleteButtons.forEach((btn) => {
         btn.addEventListener("click", (event) => {
             targetToDelete = event.target.closest(".channel-title-box");
+            deleteChannelId = targetToDelete.getAttribute("data-channel-id");
             deleteModal.style.display = "flex";
         })
     })
 
     confirmDeleteBtn.addEventListener("click", () => {
+        console.log("削除されるチャンネルID:", deleteChannelId);
         console.log("削除処理通りました");
         deleteModal.style.display = "none";
         targetToDelete = "null";
@@ -23,4 +27,4 @@ window.addEventListener("DOMContentLoaded", () => {
         deleteModal.style.display = "none";
         targetToDelete = "null";
     })
-})
+});

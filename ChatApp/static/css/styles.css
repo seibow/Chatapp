@@ -90,6 +90,10 @@ body {
     justify-content: space-evenly;
 }
 
+.icon-set:empty {
+    display: none;
+}
+
 .edit-pen,
 .delete-trashbox {
     width: 40px;
@@ -240,52 +244,54 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-  }
+}
 
-  .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 90vw;
-    width: 930px;
-    max-height: 70vh; 
-    border: 10px solid #4F7694;
-  }
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 90vw;
+  width: 930px;
+  max-height: 70vh; 
+  border: 10px solid #4F7694;
+}
 
-  #channelName {
-    max-width: 85vw;
-    width: 800px;
-    height: 50px;
-    background-color: #DDDDDD;
-    font-size: 18px;
-    border: none;
-  }
+#channelName {
+  max-width: 85vw;
+  width: 800px;
+  height: 50px;
+  background-color: #DDDDDD;
+  font-size: 18px;
+  border: none;
+}
 
-  #channelSummary {
-    max-width: 85vw;
-    width: 800px;
-    height: 100px;
-    background-color: #DDDDDD;
-    font-size: 18px;
-    border: none;
-    overflow: auto;
-  }
+#channelSummary {
+  max-width: 85vw;
+  width: 800px;
+  height: 100px;
+  background-color: #DDDDDD;
+  font-size: 18px;
+  border: none;
+  overflow: auto;
+}
 
-  #submitBtn,
-  #closeModalBtn,
-  #confirmDeleteBtn,
-  #cancelDeleteBtn {
-    width: 150px;
-    height: 36px;
-    border-radius: 46px;
-    background-color: #4F7694;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+#submitBtn,
+#closeModalBtn,
+#confirmDeleteBtn,
+#cancelDeleteBtn,
+#confirmLogoutBtn,
+#cancelLogoutBtn {
+  width: 150px;
+  height: 36px;
+  border-radius: 46px;
+  background-color: #4F7694;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
-  #confirmDeleteBtn:hover {
-    background-color: indianred;
-  }
+#confirmDeleteBtn:hover,
+#confirmLogoutBtn:hover {
+  background-color: indianred;
+}
 
-  
